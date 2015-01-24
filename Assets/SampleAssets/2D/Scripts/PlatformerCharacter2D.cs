@@ -25,6 +25,8 @@ namespace UnitySampleAssets._2D
 
 		bool doublejump=false;
 
+		public AudioClip jumpAudio;
+
 
         private void Awake()
         {
@@ -89,6 +91,9 @@ namespace UnitySampleAssets._2D
                 anim.SetBool("Ground", false);
 				rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x,0);
                 rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+				doublejump=true;
+				AudioSource.PlayClipAtPoint(jumpAudio, transform.position);
+
             }
         }
 
